@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .all-days {
+            height: 40px; /* Adjust height as needed */
+            display: table-cell;
+            vertical-align: middle;
+        }
+        table{
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- <div id="for-table">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                </tr>
+
+                <tr>
+                    <td>David</td>
+                    <td>Tezelashvili</td>
+                </tr>
+            </table>
+        </div> -->
+
+        <!-- table for creating a table. tr for creating table row. th for table head. td for table data -->
+
+
+        <!-- You can give your table a caption by putting it inside a <caption> element and nesting that inside the <table> element. -->
+        <table border="1">
+            <caption>Week days</caption>
+            <tr>
+                <th class="all-days" colspan="7" rowspan="2">All days</th>
+            </tr>
+            <tr>
+                <!-- This row is intentionally left empty -->
+            </tr>
+            <tr>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thurs</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+            </tr>
+        </table>
+
+        <br><br>
+        <!-- We can use thead, tbody, tfooter to improve our tables -->
+        <table border="1">
+            <caption>
+                How I chose to spend my money
+            </caption>
+        
+            <thead>
+                <tr><th colspan="5">Everything</th></tr>
+                <tr>
+                    <th>Purchase</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th>Evaluation</th>
+                    <th>Cost (€)</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                <tr>
+                    <td><i>Haircut</i></td>
+                    <td><i>Hairdresser</i></td>
+                    <td><i>12/09</i></td>
+                    <td><i>Great idea</i></td>
+                    <td><b>30</b></td>
+                </tr>
+        
+                <tr>
+                    <td><i>Haircut</i></td>
+                    <td><i>Hairdresser</i></td>
+                    <td><i>12/09</i></td>
+                    <td><i>Great idea</i></td>
+                    <td><b>30</b></td>
+                </tr>
+        
+                <tr>
+                    <td><i>Haircut</i></td>
+                    <td><i>Hairdresser</i></td>
+                    <td><i>12/09</i></td>
+                    <td><i>Great idea</i></td>
+                    <td><b>30</b></td>
+                </tr>
+        
+                <tr>
+                    <td><i>Haircut</i></td>
+                    <td><i>Hairdresser</i></td>
+                    <td><i>12/09</i></td>
+                    <td><i>Great idea</i></td>
+                    <td><b>30</b></td>
+                </tr>
+            </tbody>
+        
+            <tfoot>
+                <tr>
+                    <td colspan="4"><b>SUM</b></td>
+                    <td><b>120</b></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <br><br>
+        <table border="1">
+            <tr>
+                <td>Quick</td>
+                <td colspan="2">Brown fox</td>
+                <td>Jumps</td>
+            </tr>
+
+            <tr>
+                <td rowspan="3">over the</td>
+                <td>lazy</td>
+                <td>dog</td>
+                <td>and</td>
+            </tr>
+
+            <tr>
+                <td>then</td>
+                <td>it</td>
+                <td>fall</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">prey to a hunter</td>
+            </tr>
+        </table>
+    </main>
+</body>
+</html>

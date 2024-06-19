@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Descendant combinator: */
+        main div{
+            color: green;
+        }
+
+        /* But what if we wanted to be more specific and select only the child or grand-child divs? That’s where the child combinator > comes in handy. Unlike the descendant combinator, it will only select direct children. */
+        main > div{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+
+        /* Selecting only grandchildren: */
+        main > div > div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        /* In order to select an element that is adjacent (immediately following) to our target, or on the same level of indentation, we can use the adjacent sibling combinator +. */
+        .group1 + div{
+            background-color: gray;
+        }
+
+        /* Using adjacent sibling combinator to select .group3: */
+        .group1 + div + div{
+            background-color: black;
+        }
+
+        /* Finally, if we want to select all of the siblings following an element and not just the first one, we can use the general sibling combinator ~. */
+        .group1 ~ div{
+            animation-name: circle;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes circle{
+            100%{
+                transform: translateX(200px);
+            }
+        }
+
+
+
+        /* Pseudo-classes offer us different ways to target elements in our HTML. There are quite a lot of them, and they come in a couple of different flavors. Some are based on their position or structure within the HTML. Others are based on the state of a particular element, or how the user is currently interacting with it. */
+
+        /* Dynamic and user action pseudo-classes: */
+        .group1:hover{
+            width: 300px;
+            height: 300px;
+        }
+        .group1:active{
+            transform: rotate(360deg);
+            transition: 1s;
+        }
+
+
+
+        /* Structural pseudo-classes are a powerful way to select elements based on their position within the DOM. */
+        /* :root is generally the place where you will place your ‘global’ CSS rules that you want available everywhere - such as your custom properties and CSS variables, or rules such as box-sizing: border-box;. */
+        /* :first-child and :last-child will match elements that are the first or last sibling. */
+
+
+
+        /* While pseudo-classes give us an alternative way to interact with our HTML elements based on their state or structure, pseudo-elements are more abstract. They allow us to affect parts of our HTML that aren’t elements at all. */
+        .emojify::before {
+            content: '😎 🥸 🤓';
+        }
+
+        .emojify::after {
+            content: '🤓 🥸 😎';
+        }
+
+
+
+
+        /* Let’s look at some examples for basic usage.
+
+        [attribute] - This general selector will select anything where the given attribute exists. Its value doesn’t matter.
+        selector[attribute] - Optionally we can combine our attribute selectors with other types of selectors, such as class or element selectors.
+        [attribute="value"] - To get really specific, we can use = to match a specific attribute with a specific value. */
+
+
+        /* [src] This will target any element that has a src attribute.
+        img[src] This will only target img elements that have a src attribute.
+        img[src="puppy.jpg"] This will target img elements with a src attribute that is exactly "puppy.jpg" */
+
+
+        /* [attribute^="value"] - ^= Will match strings from the start.
+        [attribute$="value"] - $= Will match strings from the end.
+        [attribute*="value"] - *= The wildcard selector will match anywhere inside the string. */
+    </style>
+</head>
+<body>
+    <!-- There are a lot of advanced selectors, so going through every single one is outside the scope of this lesson. However, we’ll go through some of the most useful and common ones, as well as arm you with the concepts and vocabulary to learn more on your own. -->
+
+    <main class="parent">
+        <div class="child group1">
+          <div class="grand-child group1"></div>
+        </div>
+        <div class="child group2">
+          <div class="grand-child group2"></div>
+        </div>
+        <div class="child group3">
+          <div class="grand-child group3"></div>
+        </div>
+    </main>
+
+    <div> Let's <span class="emojify">emojify</span>this span!</div>
+
+</body>
+</html>

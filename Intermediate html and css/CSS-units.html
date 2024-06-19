@@ -1,0 +1,56 @@
+<!-- There are many different units that you can use to define sizes in CSS -->
+
+<!-- Absolute units are those that are always the same in any context -->
+
+<!-- One example of absolute unit is px, because it is not related to cm or inch -->
+
+<!-- Relative units are units that can change based on their context -->
+
+<!-- 1em is the font-size of an element (or the element’s parent if you’re using it to set font-size) -->
+
+<!-- 1rem is the font-size of the root element (either :root or html). The math works the same with rem as it did with em, but without the added complexity of keeping track of the parent’s font size.  -->
+
+<!-- A viewport represents a polygonal (normally rectangular) area in computer graphics that is currently being viewed. -->
+
+<!-- Viewport units are vh and vw, they are related to viewport -->
+
+<!-- 1vh is equal to 1% of the viewport height and 1vw is equal to 1% of the viewport width.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .wrapper {
+        font-size: 1em;
+        }
+
+        .px {
+        width: 200px;
+        }
+
+        .vw {
+        width: 10vw;
+        }
+
+        .em {
+        width: 10em;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box px">I am 200px wide</div>
+        <div class="box vw">I am 10vw wide</div>
+        <div class="box em">I am 10em wide</div>
+      </div>
+</body>
+</html>
+
+<!-- Knowledge check: -->
+<!-- em and rem units are relative to other elements, so styling sometimes becomes easier -->
+<!-- vh and vw are units related to viewport. They help us for content like hero or images -->
+<!-- When using px for margins and paddings, original view is reserved, but it is not like when using relative units -->

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table, tr, th, td{
+            border: 1px solid white;
+            border-collapse: collapse;
+            padding: 10px 20px 10px 20px;
+            text-align: center;
+        }
+        td{
+            width: 70px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Another list</caption>
+
+        <thead>
+            <tr>
+                <th colspan="4">List</th>
+            </tr>
+
+            <tr>
+                <th colspan="2">Pros</th>
+                <th colspan="2">Cons</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td rowspan="3">Pro1</td>
+                <td></td>
+                <td>Con1</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Sub Pro1</td>
+                <td rowspan="4">Con2</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Sub Pro2</td>
+                <td>SubCon1</td>
+            </tr>
+
+            <tr>
+                <td>Pro2</td>
+                <td></td>
+                <td>SubCon2</td>
+            </tr>
+
+            <tr>
+                <td>Pro3</td>
+                <td></td>
+                <td>SubCon3</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td rowspan="3"></td>
+                <td rowspan="3"></td>
+                <td rowspan="3">Con 3</td>
+                <td></td>
+            </tr>
+
+            <tr><td>SubCon1</td></tr>
+            <tr><td>SubCon2</td></tr>
+        </tfoot>
+    </table>
+</body>
+</html>

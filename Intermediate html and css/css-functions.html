@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+        --header: 3rem;
+        --footer: 40px;
+        --main: calc(100vh - calc(var(--header) + var(--footer)));
+        }
+
+        /* Setting main to equal the outcome of: 100vh - (3rem + 40px). To put it another way: main = 100vh - (header + footer). calc() is handling the math for us even though we are mixing vh, rem and px units. Combined with CSS variables, calc() can save us from the headache of repeating CSS rules. */
+
+        body, html {
+            margin: 0;
+            height: 100%;
+        }
+        header {
+            height: var(--header);
+            background-color: green;
+        }
+        main {
+            height: var(--main);
+            background-color: red;
+        }
+        footer {
+            height: var(--footer);
+            background-color: black;
+        }
+
+        /* Focus on this line width: min(150px, 100%); we can make several observations: If there are 150px available to the image, it will take up all 150px. If there are not 150px available, the image will switch to 100% of the parent’s width.  */
+
+        /* Max works the same way as min, only in reverse. It will select the largest possible value from within the parentheses. You can think of max() as ensuring a minimum allowed value for a property. */
+
+        /* The clamp() CSS function uses these values to set the smallest value, ideal value and largest value. In the above example, this would mean the smallest acceptable font-size would be 320px and the largest would be 60rem. The ideal font-size would be 80vw. */
+
+        h1 {
+            font-size: clamp(30px, 10vw, 60rem);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- When the value is a word followed by a pair of parentheses () containing information between them - as in background-color: rgb(0, 0, 0) - you’re using CSS functions. -->
+
+    <!-- Similar to programming languages, functions in CSS are reusable pieces of code which perform specific tasks. Functions are passed “arguments” between parentheses, each of which is used by the function in a specific way. -->
+
+    <!-- Unlike programming languages you’ll use in TOP, CSS does not allow us to create our own functions. Instead, the language comes bundled with a list of premade functions that will help you solve the most common styling problems. -->
+    <header>a</header>
+    <main>
+        <h1>Hello</h1>
+    </main>
+    <footer>c</footer>
+</body>
+</html>

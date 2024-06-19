@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input {
+            border: 2px solid #000;
+            margin-bottom: 15px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        input:invalid {
+            border-color: red;
+        }
+
+        input:valid {
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- Text area elements accept a couple of unique attributes that other form controls do not. These are the rows and cols attributes. They allow you to control the initial height (rows) and width (cols) of the text area: -->
+    <textarea rows="20" cols="60">Hello there</textarea>
+
+
+    <!-- To create a select dropdown, we use the <select> element. Any options we want to display within the select element are defined using <option> elements: -->
+
+    <!-- All the option elements should have a value attribute (otherwise the text content inside is used). This value will be sent to the server when the form is submitted.
+
+    We can set one of the options to be the default selected element when the browser first renders the form by giving one of the options the selected attribute: -->
+
+
+    <select name="Car">
+        <option value="mercedes">Mercedes</option>
+        <option value="tesla">Tesla</option>
+        <option value="volvo">Volvo</option>
+        <option value="bmw" selected>BMW</option>
+        <option value="mini">Mini</option>
+        <option value="ford">Ford</option>
+    </select>
+
+
+    <!-- We may also split the list of options into groups using the <optgroup> element. The optgroup element takes a label attribute which the browser uses as the label for each group: -->
+    <select name="fashion">
+        <optgroup label="Clothing">
+            <option value="t_shirt">T-Shirts</option>
+            <option value="sweater">Sweaters</option>
+            <option value="coats">Coats</option>
+        </optgroup>
+        <optgroup label="Foot Wear">
+            <option value="sneakers">Sneakers</option>
+            <option value="boots">Boots</option>
+            <option value="sandals">Sandals</option>
+        </optgroup>
+    </select>
+
+
+
+    <!-- Luckily, HTML provides a couple of elements that make it easy to organize forms into sections that are visually distinct and manageable to digest. -->
+    <fieldset>
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name">
+      
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name">
+    </fieldset>
+
+
+    <!-- The legend element is used to give field sets a heading or caption so the user can see what a grouping of inputs is for.
+
+    To create a legend, we use the <legend> element with the text we want to display within its opening and closing tags. A legend should always come right after an opening fieldset tag: -->
+    <fieldset>
+        <legend>Contact Details</legend>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="phone_number">Phone Number:</label>
+        <input type="tel" id="phone_number" name="phone_number">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+    </fieldset>
+
+    <fieldset>
+        <legend>Delivery Details</legend>
+
+        <label for="street_address">Street Address:</label>
+        <input type="text" id="street_address" name="street_address">
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city">
+
+        <label for="zip_code">Zip Code:</label>
+        <input type="text" id="zip_code" name="zip_code">
+    </fieldset>
+
+
+    <fieldset>
+        <legend>What would you like to drink?</legend>
+      
+        <div>
+          <input type="radio" name="drink" id="coffee" value="coffee">
+          <label for="coffee">Coffee</label>
+        </div>
+      
+        <div>
+          <input type="radio" name="drink" id="tea" value="tea">
+          <label for="tea">Tea</label>
+        </div>
+      
+        <div>
+          <input type="radio" name="drink" id="soda" value="soda">
+          <label for="soda">Soda</label>
+        </div>
+    </fieldset>
+
+
+    <!-- To add the minimum length validation, we give the form control a minlength attribute with an integer value that represents the minimum number of characters we want to allow in the form control: -->
+    <form action="#" method="get">
+        <div>
+          <textarea placeholder="What's happening?" minlength="3"></textarea>
+        </div>
+        
+        <button type="submit">Tweet</button>
+    </form>
+
+    <!-- To add a maximum length validation, we give the form control a maxlength attribute with an integer value which represents the maximum number of characters we want to allow in the form control -->
+      
+
+
+    <!-- To add a minimum value validation, we give the form control a min attribute with an integer value which represents the minimum number we want the form control to accept: -->
+    <form action="#" method="get">
+        <div>
+          <label for="quantity">Quantity</label>
+        </div>
+        <input type="number" id="quantity" name="quantity" min="1" value="0">
+        
+        <div>
+          <button type="submit">Place Order</button>
+        </div>
+    </form>
+
+    <!-- To add a maximum value validation, we give the form control a max attribute with an integer value which represents the maximum number we want the form control to accept: -->
+    <form action="#" method="get">
+        <div>
+          <label for="passengers">Passengers</label>
+        </div>
+        <input type="number" id="passengers" name="passengers" max="5" value="0">
+         
+        <div>
+          <button type="submit">Book</button>
+        </div>
+    </form>
+
+    <!-- To add a pattern validation, we give the form control a pattern attribute with a regular expression as the value. In our example we are using the pattern validation to ensure a US zip code is in the correct format (5 numbers followed by an optional dash and 4 more numbers): -->
+    <form action="#" method="get">
+        <div>
+          <label for="zip_code">Postal / Zip Code:</label>
+        </div>
+      
+        <input type="text" id="zip_code" name="zip_code" pattern="(\d{5}([\-]\d{4})?)" required>
+      
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+    </form>
+
+
+
+    <!-- We can target form controls that have passed or failed validations using the :valid and :invalid pseudo-classes. -->
+    <form action="#" method="get">
+        <div>
+          <label for="email">Email</label>
+        </div>
+        <input type="email" id="email" name="email">
+      
+        <div>
+          <label for="website">Website</label>
+        </div>
+        <input type="url" id="website" name="website">
+      
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

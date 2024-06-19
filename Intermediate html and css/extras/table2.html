@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table, tr, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #main-head{
+            background-color: #123123;
+            text-decoration: underline;
+            color: white;
+        }
+
+        #main-td{
+            width: 150px;
+        }
+
+        .highlighted-row {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Basic HTML Table</caption>
+
+        <thead>
+            <tr id="main-head">
+                <th>Level1</th>
+                <th>Level2</th>
+                <th>Level3</th>
+                <th>Info</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td rowspan="6" id="main-td">System</td>
+                <td rowspan="4">System apps</td>
+                <td rowspan="3">SystemEnv</td>
+                <td>App Test</td>
+                <td>foo</td>
+            </tr>
+
+            <tr>
+                <td>App Memory</td>
+                <td>foo</td>
+            </tr>
+
+            <tr>
+                <td>App Test</td>
+                <td>bar</td>
+            </tr>
+
+            <tr>
+                <td>SystemEnv2</td>
+                <td>App Test</td>
+                <td>bar</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2">System Memory</td>
+                <td rowspan="2">Memory Test</td>
+                <td>Memory Func</td>
+                <td>foo</td>
+            </tr>
+
+            <tr>
+                <td>Apes Test</td>
+                <td>foo</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        let header = document.getElementById("main-head");
+        let timeout = 500;
+    
+        let colors = ["#5bc49f", "#00e63e", "#f2ac31", "#6f82e8", "#ad23a5", "#349dc9", "#fe7a61", "#9e5e3f", "#7c5cd6", "#cd0b8c", "#1a947f", "#e7a91b", "#ebac9d", "#3a3c68", "#dc2e34", "#527021", "#a76bdf", "#5c7910", "#ec6f4d", "#9f3809"];
+    
+        header.addEventListener("mouseover", function() {
+            var rows = document.querySelectorAll("tbody tr");
+            rows.forEach(function(row, index) {
+                setTimeout(function() {
+                    row.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    row.style.color = "white";
+                    row.classList.add("highlighted-row");
+                }, timeout * (index + 1));
+            });
+        });
+    
+        header.addEventListener("mouseleave", function() {
+            var rows = document.querySelectorAll("tbody tr");
+            rows.forEach(function(row, index) {
+                setTimeout(function() {
+                    row.style.backgroundColor = "";
+                    row.style.color = "black";
+                    row.classList.remove("highlighted-row");
+                }, timeout * (index + 1));
+            });
+        });
+    
+    </script>
+</body>
+</html>

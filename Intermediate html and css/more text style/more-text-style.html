@@ -1,0 +1,51 @@
+<!-- When we use fonts which are not installed on user's devide and we do not have back up fonts, default font will be used, which is ugly -->
+
+<!-- One popular and easy method to get fonts that are not installed on a user’s device is to use an online font library. -->
+
+<!-- If we want text only to have some style, like bold or italic, we can just use css for that. But if we want the text to have some extra meaning, we can use semantic tags like strong or em -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Using link for this instance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        h1{
+            font-family: "Roboto";
+        }
+
+        /* We can also download font and then import it */
+        /* First creating font face */
+        @font-face {
+            font-family: geo1;
+            src: url(3d_unicode.ttf);
+        }
+        p{
+            font-family: geo1, "Roboto";
+
+            /* We can use letter spacing for distance between letters in text */
+            letter-spacing: 0.5rem;
+
+            /* Line height for distance among lines */
+            line-height: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <p>გამარჯობა, მე ვარ დათა!<br>მე ვცხოვრობ თბილისში</p>
+</body>
+</html>
+
+<!-- Knowledge check: -->
+<!-- 2 ways to add fonts to website are using @import or @font-face-->
+<!-- Font stacks are many font-families written in one line just in case some do not work -->
+<!-- If we want to increase or decrease the space between letters in text, we can use letter-spacing property -->
+<!-- If we want to increase or decrease the space between lines in text, we can use line-height property -->
