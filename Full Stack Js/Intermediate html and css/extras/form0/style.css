@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+:root{
+    --text-color: #050505;
+    --button-color: #596D48;
+    --border-color: #E5E7EB;
+    --div-backgroud: #0505058e;
+    --div-background2: #F9FAFB;
+}
+
+@font-face {
+    font-family: "LogoFont";
+    src: url(./assets/Norse-Bold.otf);
+}
+
+p, label, input{
+    font-family: "Playfair Display";
+    color: var(--text-color);
+}
+
+
+main{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    height: 80vh;
+    width: 80%;
+    border: 1px solid black;
+}
+.part1{
+    width: 35%;
+    height: 100%;
+}
+#img1{
+    width: 100%;
+    height: 100%;
+}
+
+.logo-div{
+    width: 100%;
+    height: 15%;
+    background-color: var(--div-backgroud);
+    position: relative;
+    bottom: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-family: "LogoFont";
+    color: white;
+    font-size: 8rem;
+}
+#img2{
+    height: 90%;
+}
+
+.part2{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+.part2 > div{
+    width: 100%;
+}
+.starting{
+    height: 40%;
+    background-color: var(--div-background2);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.starting p{
+    margin: 0 0 50px 50px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    max-width: 75%;
+    letter-spacing: 0.2px;
+}
+
+
+.form-div{
+    height: 60%;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+#form-p1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 30px 0 0 50px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: white;
+    height: 30%;
+}
+form > div{
+    margin: 10px 0 15px 0;
+    width: 60%;
+    padding: 30px 0 0 50px;
+}
+label{
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+input{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    font-weight: bold;
+}
+#input1:valid, #input2:valid, #input3:valid, #input4:valid{
+    border: 1px solid var(--button-color);
+}
+#input1:invalid, #input2:invalid, #input3:invalid, #input4:invalid, #input5, #input6{
+    border: 1px solid red;
+}
+
+
+#submit-button{
+    font-size: 1.2rem;
+    padding: 15px 25px 15px 25px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--button-color);
+    color: white;
+    cursor: pointer;
+}
+.submit-div p{
+    padding-top: 20px;
+    font-weight: bold;
+}
+.submit-div span{
+    color: var(--button-color);
+    cursor: pointer;
+}
