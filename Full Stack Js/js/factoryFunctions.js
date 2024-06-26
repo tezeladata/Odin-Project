@@ -146,5 +146,96 @@ console.log(circ1.getArea(), circ1.getPerimeter())
 const rect1 = createShape("Rectangle", 3, 4)
 console.log(rect1)
 
+
+
 // Destucting
-// აქიდან ვაგრძელებ შემდეგზე
+const {a, b} = {a: 1, b: 2}
+console.log(b);
+console.log(a)
+
+const [c, ...d] = [1, 2, 3, 4, 5];
+console.log(c);
+console.log(d)
+
+
+
+// Private variables:
+function createUser (name) {
+  const discordName = "@" + name;
+
+  let reputation = 0;
+  const getReputation = () => reputation;
+  const giveReputation = () => reputation++;
+
+  return { name, discordName, getReputation, giveReputation };
+}
+
+const josh = createUser("josh");
+josh.giveReputation();
+josh.giveReputation();
+
+console.log({
+  discordName: josh.discordName,
+  reputation: josh.getReputation()
+});
+
+josh.giveReputation();
+josh.giveReputation();
+// We have increased variable reputation's value by two, and in console reputation will have value set to four
+console.log({
+  discordName: josh.discordName,
+  reputation: josh.getReputation()
+});
+
+
+// Concerning factory functions, a private variable or function uses closures to create smaller, dedicated variables and functions within a factory function itself - things that we do not need to return in the object itself. This way we can create neater code, without polluting the returned object with unnecessary variables that we create while creating the object itself. Often, you do not need every single function within a factory to be returned with the object, or expose an internal variable. You can use them privately since the property of closures allows you to do so.
+// In this case we used reputation as private variable
+
+
+
+// Prototypal inheritance with factories
+// function createPlayer (name, level) {
+//   const { getReputation, giveReputation } = createUser(name);
+
+//   const increaseLevel = () => level++;
+//   return { name, getReputation, giveReputation, increaseLevel };
+// }
+
+// We just used createUser to create one object in createPlayer function.
+// level is argument passed directly to createPlayer
+// increase level is just function which increments level variable
+// At last, we return name (createPlayer), getReputation (createUser), giveReputation (createUser) and increaseLevel (createPlayer)
+// getReputation are giveReputation inherited from createUser
+
+// We can simplify it even more, use object.assign:
+function createPlayer (name, level) {
+  const user = createUser(name);
+
+  const increaseLevel = () => level++;
+  return Object.assign({}, user, { increaseLevel });
+}
+const user1 = createPlayer("Hello", 0);
+user1.increaseLevel()
+console.log(user1.increaseLevel())
+
+// giveReputation and getReputation is accesible because they are created in createUser function
+user1.giveReputation();
+console.log(user1.getReputation())
+
+
+
+
+// iife
+const calculator = (function () {
+  const add = (a, b) => a + b;
+  const sub = (a, b) => a - b;
+  const mul = (a, b) => a * b;
+  const div = (a, b) => a / b;
+  return { add, sub, mul, div };
+})(); // Immediately invoked
+
+console.log(calculator.add(3,5))
+console.log(calculator.sub(6,2))
+console.log(calculator.mul(14,5534))
+
+// This is where we encounter the word encapsulation - bundling data, code, or something into a single unit, with selective access to the things inside that unit itself. While it sounds general, this is what happens when we wrap, or encapsulate our code into modules - we don’t expose everything to the body of our program itself. This encapsulation leads to an effect called namespacing. Namespacing is a technique that is used to avoid naming collisions in our programs.
